@@ -30,6 +30,9 @@ If you want to disable the context menu, just edit the "Rails.sublime-settings" 
 
 Screenshots
 
+![Quick Panel](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/quick-panel.png)
+![Context Menu](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/context-menu.png)
+
 Credits
 
   - https://bitbucket.org/ixmatus/inflector
