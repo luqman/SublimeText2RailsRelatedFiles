@@ -6,7 +6,7 @@ I've made a few assumptions; e.g. take a Blog app with the "Post" model/view/con
 
 So when "Right Clicking" on the active view or using the "CMD+Shift+O" shortcut it will look for files.
 
-  "posts_controller.rb" under app/controllers
+  "posts_controller.rb" under app/controllers (If this was under a namespace e.g. app/controllers/admin/posts_controller then it will look under views/admin/posts/** same goes for the views)
 
     views/posts/** - folder for view files
     models/post** - any models starting with "post"
@@ -19,12 +19,13 @@ So when "Right Clicking" on the active view or using the "CMD+Shift+O" shortcut 
     assets/stylesheets/post** - any stylesheet file starting with "post"
     controllers/post** - any controller file starting with "post"
 
-  "post.rb" model under app/models
+  "post.rb" model under app/models (This one is trick one...)
 
     models/post** - any models starting with "post"
-    views/posts/** - folder for view files
-    views/**/posts/**
+    views/posts/** - all files in this folder
+    views/**/posts/** - all files in this folder (e.g. admin namespace)
     controllers/post** - any controller file starting with "post"
+    controllers/**/post** - any controller file starting with "post" (e.g. admin namespace)
 
 If you want to disable the context menu, just edit the "Rails.sublime-settings" file changing "show_context_menu" to false.
 
