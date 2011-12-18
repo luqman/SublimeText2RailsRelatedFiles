@@ -28,12 +28,16 @@ So when "Right Clicking" on the active view or using the "CMD+Shift+O" shortcut 
 
 If you want to disable the context menu, just edit the "Rails.sublime-settings" file changing "show_context_menu" to false.
 
-Screenshots
+### Future
+
+Maybe we can extract the possible partials being used in the current file e.g. `render "post"` or even `render @posts`, we know where to look > app/views/posts/_post
+
+### Screenshots
 
 ![Quick Panel](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/quick-panel.png)
 ![Context Menu](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/context-menu.png)
 
-Credits
+### Credits
 
   - https://bitbucket.org/ixmatus/inflector
   - Tiny copy/paste from https://github.com/kemayo/sublime-text-2-git
