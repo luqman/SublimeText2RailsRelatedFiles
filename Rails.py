@@ -55,9 +55,12 @@ class RailsRelatedFilesHelper:
     working_directory_base = os.path.basename(working_directory) #if app/views/posts it should return "posts"
     model                  = Inflector(English).singularize(os.path.basename(working_directory_base)).lower() # should return "post"
     namespace_directory    = RailsRelatedFilesHelper.get_namespace_directory(working_directory) #should return none
+    controller = model
 
     if namespace_directory:
       working_directory_base = namespace_directory
+
+      controller = os.path.join(os.path.split(working_directory_base)[0], controller)
 
     walkers = [
       'models/'             + model + '**',
@@ -65,7 +68,7 @@ class RailsRelatedFilesHelper:
       'helpers'             + working_directory_base + '/**',
       'assets/javascripts/' + model + '**',
       'assets/stylesheets/' + model + '**',
-      'controllers/'        + model + '**'
+      'controllers/'        + controller + '**'
     ]
     
     return RailsRelatedFilesHelper.get_files_while_walking(app_folder, walkers)
