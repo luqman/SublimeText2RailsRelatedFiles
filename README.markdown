@@ -35,6 +35,8 @@ Maybe we can extract the possible partials being used in the current file e.g. `
 
 ### Screenshots
 
+Here I've pressed the shortcut key when looking the "post.rb" file under models.
+
 ![Quick Panel](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/quick-panel.png)
 ![Context Menu](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/context-menu.png)
 
