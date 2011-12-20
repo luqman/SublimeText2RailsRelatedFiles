@@ -2,30 +2,30 @@
 
 Note: I've never written any Python code before! So feel free to implement best practices and make a pull request.
 
-I've made a few assumptions; e.g. take a Blog app with the "Post" model/view/controller.
+I've made a few assumptions here; e.g. lets take a Blog app with the "Post" model/view/controller.
 
-So when "Right Clicking" on the active view or using the "CMD+Shift+O" shortcut it will look for files.
+Imagine you "right clicked" on the following file/s (Screenshot 2) or by using the "CMD+Shift+O" (Screenshot 1) shortcut it will search for possible related files.:
 
-  "posts_controller.rb" under app/controllers (If this was under a namespace e.g. app/controllers/admin/posts_controller then it will look under views/admin/posts/** same goes for the views)
+  "posts_controller.rb" (If this was under a namespace e.g. app/controllers/admin/posts_controller then it will look under views/admin/posts/** and vice versa)
 
-    views/posts/** - folder for view files
-    models/post** - any models starting with "post"
+    views/posts/** - All files under this folder
+    models/post**  - Models starting with "post"
 
   "show.html.erb" under app/views/posts
 
-    models/post** - any models starting with "post"
-    views/posts/** - all files this folder
-    assets/javascript/post** - anyjavascript file starting with "post"
-    assets/stylesheets/post** - any stylesheet file starting with "post"
-    controllers/post** - any controller file starting with "post"
+    models/post**             - Models starting with "post"
+    views/posts/**            - All files in this folder
+    assets/javascript/post**  - Any javascript file starting with "post"
+    assets/stylesheets/post** - Any stylesheet file starting with "post"
+    controllers/post**        - Any controller file starting with "post"
 
   "post.rb" model under app/models (This one is trick one...)
 
-    models/post** - any models starting with "post"
-    views/posts/** - all files in this folder
-    views/**/posts/** - all files in this folder (e.g. admin namespace)
-    controllers/post** - any controller file starting with "post"
-    controllers/**/post** - any controller file starting with "post" (e.g. admin namespace)
+    models/post**         - Models starting with "post"
+    views/posts/**        - All files in this folder
+    views/**/posts/**     - All files in this folder (e.g. admin namespace)
+    controllers/post**    - Any controller starting with "post"
+    controllers/**/post** - Any controller starting with "post" (e.g. admin namespace)
 
 If you want to disable the context menu, just edit the "Rails.sublime-settings" file changing "show_context_menu" to false.
 
@@ -35,12 +35,12 @@ Maybe we can extract the possible partials being used in the current file e.g. `
 
 ### Screenshots
 
-Here I've pressed the shortcut key when looking the "post.rb" file under models.
+Here I've pressed the shortcut key when looking at the "post.rb" file under models.
 
 ![Quick Panel](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/quick-panel.png)
 ![Context Menu](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/context-menu.png)
 
 ### Credits
 
-  - https://bitbucket.org/ixmatus/inflector
+  - Python version of Rails Inflector https://bitbucket.org/ixmatus/inflector
   - Tiny copy/paste from https://github.com/kemayo/sublime-text-2-git
