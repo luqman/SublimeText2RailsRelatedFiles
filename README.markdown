@@ -4,14 +4,16 @@ Note: I've never written any Python code before! So feel free to implement best 
 
 I've made a few assumptions here; e.g. lets take a Blog app with the "Post" model/view/controller.
 
-Imagine you "right clicked" on the following file/s (Screenshot 2) or by using the "CMD+Shift+O" (Screenshot 1) shortcut it will search for possible related files.:
+Imagine you "right clicked" on the following file/s (Screenshot 2) or by using the "CMD+Shift+O" (Screenshot 1) shortcut it will search for files:
 
-  "posts_controller.rb" (If this was under a namespace e.g. app/controllers/admin/posts_controller then it will look under views/admin/posts/** and vice versa)
+ `posts_controller.rb` under `app/controllers`
+
+If this was under a namespace e.g. `app/controllers/admin/posts_controller.rb` then it will look under `views/admin/posts/**` and vice versa.
 
     views/posts/** - All files under this folder
     models/post**  - Models starting with "post"
 
-  "show.html.erb" under app/views/posts
+ `show.html.erb` under `app/views/posts`
 
     models/post**             - Models starting with "post"
     views/posts/**            - All files in this folder
@@ -19,7 +21,7 @@ Imagine you "right clicked" on the following file/s (Screenshot 2) or by using t
     assets/stylesheets/post** - Any stylesheet file starting with "post"
     controllers/post**        - Any controller file starting with "post"
 
-  "post.rb" model under app/models (This one is trick one...)
+ `post.rb` model under `app/models`
 
     models/post**         - Models starting with "post"
     views/posts/**        - All files in this folder
@@ -27,7 +29,7 @@ Imagine you "right clicked" on the following file/s (Screenshot 2) or by using t
     controllers/post**    - Any controller starting with "post"
     controllers/**/post** - Any controller starting with "post" (e.g. admin namespace)
 
-If you want to disable the context menu, just edit the "Rails.sublime-settings" file changing "show_context_menu" to false.
+If you want to disable the context menu, just edit the `Rails.sublime-settings` file changing "show_context_menu" to false.
 
 ### Future
 
