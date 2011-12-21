@@ -1,5 +1,5 @@
 import sublime, sublime_plugin, os, glob, re
-from vendor import *
+from vendor.inflector import *
 
 # @author Luqman Amjad http://luqmanamjad.com
 
