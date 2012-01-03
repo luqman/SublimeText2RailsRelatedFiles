@@ -92,7 +92,7 @@ class RailsRelatedFilesHelper:
   @staticmethod
   def get_app_sub_directory(filename):
 
-    regex = re.compile('\/app\/(views|controllers|helpers|models|assets)')
+    regex = re.compile('(views|controllers|helpers|models|assets)')
     match = regex.findall(filename)
 
     if match:
