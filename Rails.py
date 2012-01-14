@@ -3,6 +3,7 @@ from vendor.inflector import *
 
 # @author Luqman Amjad http://luqmanamjad.com
 
+# Taken from Git Plugin (Changed to detected Rails root)
 def rails_root(directory):
   while directory:
     if os.path.exists(os.path.join(directory, 'Rakefile')):
@@ -128,22 +129,33 @@ class RailsRelatedFilesHelper:
         RailsRelatedFilesHelper().get_directory_listing_without_folders(app_folder + '/' + walker)
       )
 
-    return files
+    files_without_full_path = []
+    for _file in files:
+
+      files_without_full_path += [_file.replace(app_folder + '/', 'app/')]
+
+    return files_without_full_path
 
 class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
   
   APP_FOLDERS = ['controllers', 'models', 'views'] #assets, helpers
 
   def run(self, edit, index):
-   
+
     if index >= 0:
    
       self.open_file(index)
 
     else:
 
-      self.build_files()
-      sublime.active_window().show_quick_panel(self.files, self.open_file)
+      try:
+
+        self.build_files()
+        sublime.active_window().show_quick_panel(self.files, self.open_file)
+
+      except:
+
+        return False
 
   def is_visible(self, index):
 
@@ -161,14 +173,14 @@ class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
 
     if index >= 0:
 
-      sublime.active_window().open_file(self.files[index])
+      sublime.active_window().open_file(os.path.join(self.rails_root_directory, self.files[index]))
 
   def build_files(self):
 
     self.files = []
-    rails_root_directory = rails_root(self.get_working_dir())
+    self.rails_root_directory = rails_root(self.get_working_dir())
 
-    if rails_root_directory:
+    if self.rails_root_directory:
 
       self.show_context_menu = sublime.load_settings("Rails.sublime-settings").get('show_context_menu')
 
@@ -179,7 +191,7 @@ class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
       file_name_base         = os.path.basename(current_file_name)
       file_name_base_no_ext  = os.path.splitext(file_name_base)[0]
 
-      rails_app_directory    = os.path.join(rails_root_directory, 'app')
+      rails_app_directory    = os.path.join(self.rails_root_directory, 'app')
 
       app_sub_directory      = RailsRelatedFilesHelper.get_app_sub_directory(working_directory)
 
@@ -192,6 +204,10 @@ class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
         }.get(app_sub_directory)
 
         self.files = func(*args)
+
+        if not self.files:
+          self.files = ['Rails Related Files: Nothing found...']
+
 
   def description(self, index):
     self.build_files()
@@ -206,7 +222,7 @@ class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
     if view and view.file_name() and len(view.file_name()) > 0:
       return view.file_name()
 
-  # Taken rom Git Plugin
+  # Taken from Git Plugin
   def get_working_dir(self):
     file_name = self._active_file_name()
     if file_name:
