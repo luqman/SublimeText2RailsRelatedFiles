@@ -39,7 +39,12 @@ Maybe we can extract the possible partials being used in the current file e.g. `
 
 Here I've pressed the shortcut key when looking at the "page.rb" file under models.
 
+Quick Panel
+
 ![Quick Panel](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/quick-panel.png)
+
+Context Menu
+
 ![Context Menu](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/context-menu.png)
 
 ### Credits
