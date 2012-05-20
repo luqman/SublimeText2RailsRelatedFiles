@@ -83,6 +83,7 @@ class RailsRelatedFilesHelper:
     
     walkers = [
       'models/'         + model      + '**',
+      'helpers/'        + model      + '**',  # Helpers
       'views/'          + controller + '/**', # Views
       'views/**/'       + controller + '/**',  # Views
       'controllers/'    + controller + '**',  # Controllers looks under controllers/model** 
