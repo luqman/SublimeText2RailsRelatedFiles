@@ -66,7 +66,7 @@ class RailsRelatedFilesHelper:
     walkers = [
       'models/'             + model + '**',
       'views/'              + working_directory_base + '/**',
-      'helpers'             + working_directory_base + '/**',
+      'helpers/'            + model + '**',
       'assets/javascripts/' + model + '**',
       'assets/stylesheets/' + model + '**',
       'controllers/'        + controller + '**'
@@ -229,4 +229,4 @@ class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
       return os.path.dirname(file_name)
     else:
       return self.window.folders()[0]
-    
+
