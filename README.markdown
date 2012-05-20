@@ -2,13 +2,13 @@
 
 Note: I've never written any Python code before! So feel free to implement best practices and make a pull request.
 
-I've made a few assumptions here; e.g. lets take a Blog app with the "Post" model/view/controller.
+This plugin allows you to easily navigate your Rails projects by making a few basic assumptions. I wrote this so I didnt have to constantly use the SideBar to lookup files!
 
-Imagine you "right clicked" on the following file/s (Screenshot 2) or by using the "CMD+Shift+O" (Screenshot 1) shortcut it will search for files:
+Ok, so lets imagine you "right clicked" on the following file/s (Screenshot 2) or by using the "CMD+Shift+O" shortcut (Screenshot 1)  it will search for files:
 
  `posts_controller.rb` under `app/controllers`
 
-If this was under a namespace e.g. `app/controllers/admin/posts_controller.rb` then it will look under `views/admin/posts/**` and vice versa.
+If it was under the "admin" namespace e.g. `app/controllers/admin/posts_controller.rb` then it will look under `views/admin/posts/**` and vice versa.
 
     views/posts/** - All files under this folder
     models/post**  - Models starting with "post"
@@ -46,6 +46,10 @@ Quick Panel
 Context Menu
 
 ![Context Menu](https://github.com/luqman/SublimeText2RailsRelatedFiles/raw/master/screenshots/context-menu.png)
+
+### Contributors
+
+- https://github.com/bratsche bug fix
 
 ### Credits
 
