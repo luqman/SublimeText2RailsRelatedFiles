@@ -44,16 +44,16 @@ class RailsRelatedFilesHelper:
       controller = os.path.join(working_directory_base, controller)
 
     walkers = [
-      'app/models/'     + model      + '*',
-      'app/models/**/'  + model      + '*',
-      'app/helpers/'    + controller + '**',
-      'app/helpers/**/' + controller + '**',
-      'app/views/'      + controller + '/**',
-      'app/views/**/'   + controller + '/**',
-      'test/'           + controller + '/**',
-      'test/**/'        + controller + '/**',
-      'spec/'           + controller + '/**',
-      'spec/**/'        + controller + '/**'
+      'app/models/'          + model      + '*',
+      'app/models/**/'       + model      + '*',
+      'app/helpers/'         + controller + '**',
+      'app/helpers/**/'      + controller + '**',
+      'app/views/'           + controller + '/**',
+      'app/views/**/'        + controller + '/**',
+      'test/controllers/'    + controller + '**',
+      'test/controllers/**/' + controller + '**',
+      'spec/controllers/'    + controller + '**',
+      'spec/controllers/**/' + controller + '**'
     ]
 
     return RailsRelatedFilesHelper.get_files_while_walking(app_folder, walkers)
