@@ -116,7 +116,7 @@ class RailsRelatedFilesHelper:
   def for_tests(app_folder, working_directory, base_file_name):
 
     if '_controller' in base_file_name:
-      controller = base_file_name.replace('_controller', '').replace('_spec', '').replace('test_', '')
+      controller = base_file_name.replace('_controller', '').replace('_spec', '').replace('_test', '').replace('test_', '')
       model = Inflector(English).singularize(controller).lower()
     else:
       model = base_file_name.replace('_spec', '').replace('test_', '')
