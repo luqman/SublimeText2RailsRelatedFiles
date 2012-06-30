@@ -49,6 +49,7 @@ Context Menu
 
 ### Contributors
 
+- https://github.com/fredwu added support for test/spec files
 - https://github.com/bratsche bug fix
 
 ### Credits
