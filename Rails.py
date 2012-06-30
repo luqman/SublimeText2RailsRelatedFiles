@@ -50,10 +50,10 @@ class RailsRelatedFilesHelper:
       'app/helpers/**/'      + controller + '**',
       'app/views/'           + controller + '/**',
       'app/views/**/'        + controller + '/**',
-      'test/controllers/'    + controller + '**',
-      'test/controllers/**/' + controller + '**',
-      'spec/controllers/'    + controller + '**',
-      'spec/controllers/**/' + controller + '**'
+      'test/'                + controller + '**',
+      'test/**/'             + controller + '**',
+      'spec/'                + controller + '**',
+      'spec/**/'             + controller + '**'
     ]
 
     return RailsRelatedFilesHelper.get_files_while_walking(app_folder, walkers)
@@ -81,10 +81,10 @@ class RailsRelatedFilesHelper:
       'app/assets/stylesheets/' + model      + '**',
       'app/controllers/'        + controller + '**'
       'app/controllers/**/'     + controller + '**'
-      'test/views/'             + controller + '**'
-      'test/views/**/'          + controller + '**'
-      'spec/views/'             + controller + '**'
-      'spec/views/**/'          + controller + '**'
+      'test/'                   + controller + '**'
+      'test/**/'                + controller + '**'
+      'spec/'                   + controller + '**'
+      'spec/**/'                + controller + '**'
     ]
 
     return RailsRelatedFilesHelper.get_files_while_walking(app_folder, walkers)
@@ -104,10 +104,10 @@ class RailsRelatedFilesHelper:
       'app/views/**/'       + controller + '/**',
       'app/controllers/'    + controller + '**',
       'app/controllers/**/' + controller + '**',
-      'test/models/'        + model      + '**',
-      'test/models/**/'     + model      + '**',
-      'spec/models/'        + model      + '**',
-      'spec/models/**/'     + model      + '**'
+      'test/'               + model      + '**',
+      'test/**/'            + model      + '**',
+      'spec/'               + model      + '**',
+      'spec/**/'            + model      + '**'
     ]
 
     return RailsRelatedFilesHelper.get_files_while_walking(app_folder, walkers)
