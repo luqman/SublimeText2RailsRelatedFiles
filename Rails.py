@@ -239,7 +239,7 @@ class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
       self.show_context_menu = sublime.load_settings("Rails.sublime-settings").get('show_context_menu')
 
       current_file_name      = self._active_file_name()
-      working_directory      = self.get_working_dir()
+      working_directory      = self.get_working_dir().replace("\\",'/')
       working_directory_base = os.path.basename(working_directory)
 
       file_name_base         = os.path.basename(current_file_name)
