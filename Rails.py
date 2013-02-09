@@ -122,14 +122,6 @@ class RailsRelatedFilesHelper:
       model = base_file_name.replace('_spec', '').replace('test_', '')
       controller = Inflector(English).pluralize(model).lower()
 
-    namespace_directory    = RailsRelatedFilesHelper.get_namespace_directory(working_directory)
-    working_directory_base = os.path.basename(working_directory)
-
-    if namespace_directory:
-
-      controller = os.path.join(working_directory_base, controller)
-      model = os.path.join(working_directory_base, model)
-
     walkers = [
       'app/controllers/'    + controller + '**',
       'app/controllers/**/' + controller + '**',
