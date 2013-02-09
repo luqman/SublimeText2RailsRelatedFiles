@@ -79,11 +79,11 @@ class RailsRelatedFilesHelper:
       'app/helpers/**/'         + controller + '**',
       'app/assets/javascripts/' + model      + '**',
       'app/assets/stylesheets/' + model      + '**',
-      'app/controllers/'        + controller + '**'
-      'app/controllers/**/'     + controller + '**'
-      'test/'                   + controller + '**'
-      'test/**/'                + controller + '**'
-      'spec/'                   + controller + '**'
+      'app/controllers/'        + controller + '**',
+      'app/controllers/**/'     + controller + '**',
+      'test/'                   + controller + '**',
+      'test/**/'                + controller + '**',
+      'spec/'                   + controller + '**',
       'spec/**/'                + controller + '**'
     ]
 
