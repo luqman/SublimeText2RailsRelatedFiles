@@ -57,6 +57,34 @@ class RailsRelatedFilesHelper:
     ]
 
     return RailsRelatedFilesHelper.get_files_while_walking(app_folder, walkers)
+  
+  @staticmethod
+  def for_helpers(app_folder, working_directory, base_file_name):
+
+    helper = base_file_name.replace('_controller', '')
+    model = Inflector(English).singularize(helper).lower()
+
+    namespace_directory    = RailsRelatedFilesHelper.get_namespace_directory(working_directory)
+    working_directory_base = os.path.basename(working_directory)
+
+    if namespace_directory:
+
+      helper = os.path.join(working_directory_base, helper)
+
+    walkers = [
+      'app/models/'         + model  + '*',
+      'app/models/**/'      + model  + '*',
+      'app/controllers/'    + helper + '**',
+      'app/controllers/**/' + helper + '**',
+      'app/views/'          + helper + '/**',
+      'app/views/**/'       + helper + '/**',
+      'test/'               + helper + '**',
+      'test/**/'            + helper + '**',
+      'spec/'               + helper + '**',
+      'spec/**/'            + helper + '**'
+    ]
+
+    return RailsRelatedFilesHelper.get_files_while_walking(app_folder, walkers)
 
   @staticmethod
   def for_views(app_folder, working_directory):
@@ -243,6 +271,7 @@ class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
 
         func, args = {
           'app/controllers': (RailsRelatedFilesHelper.for_controllers, (self.rails_root_directory, working_directory, file_name_base_no_ext,)),
+          'app/helpers'    : (RailsRelatedFilesHelper.for_helpers,     (self.rails_root_directory, working_directory, file_name_base_no_ext,)),
           'app/views'      : (RailsRelatedFilesHelper.for_views,       (self.rails_root_directory, working_directory,)),
           'app/models'     : (RailsRelatedFilesHelper.for_models,      (self.rails_root_directory, working_directory, file_name_base_no_ext,)),
           'test'           : (RailsRelatedFilesHelper.for_tests,       (self.rails_root_directory, working_directory, file_name_base_no_ext,)),
