@@ -49,9 +49,10 @@ Context Menu
 
 ### Contributors
 
-- https://github.com/fredwu added support for test/spec files
-- https://github.com/bratsche bug fix
-
+- https://github.com/fredwu Fred Wu added support for test/spec files
+- https://github.com/bratsche Cody Russell bug fix
+- https://github.com/deiga Timo Sand Sublime Menu Entries, Support for helper Files
+- 
 ### Credits
 
   - Python version of Rails Inflector https://bitbucket.org/ixmatus/inflector
