@@ -61,7 +61,7 @@ class RailsRelatedFilesHelper:
   @staticmethod
   def for_helpers(app_folder, working_directory, base_file_name):
 
-    helper = base_file_name.replace('_controller', '')
+    helper = base_file_name.replace('_helper', '')
     model = Inflector(English).singularize(helper).lower()
 
     namespace_directory    = RailsRelatedFilesHelper.get_namespace_directory(working_directory)
@@ -181,7 +181,7 @@ class RailsRelatedFilesHelper:
   @staticmethod
   def get_namespace_directory(directory):
 
-    regex = re.compile('(\/app\/views|controllers|test|spec)\/(.*)') #amazing regex skills...
+    regex = re.compile('(\/app\/views|controllers|helpers|test|spec)\/(.*)') #amazing regex skills...
     match = regex.findall(directory)
 
     if match:
@@ -212,7 +212,7 @@ class RailsRelatedFilesHelper:
 
 class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
 
-  APP_FOLDERS = ['app/controllers', 'app/models', 'app/views', 'test', 'spec'] #assets, helpers
+  APP_FOLDERS = ['app/controllers', 'app/helpers', 'app/models', 'app/views', 'test', 'spec'] #assets
 
   def run(self, edit, index):
 
