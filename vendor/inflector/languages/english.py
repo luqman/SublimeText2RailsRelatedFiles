@@ -6,18 +6,18 @@
 # See the end of this file for the free software, open source license (BSD-style).
 
 import re
-from base import Base
+from .base import Base
 
 class English (Base):
     """
     Inflector for pluralize and singularize English nouns.
-    
+
     This is the default Inflector for the Inflector obj
     """
-    
+
     def pluralize(self, word) :
         '''Pluralizes English nouns.'''
-        
+
         rules = [
             ['(?i)(quiz)$' , '\\1zes'],
             ['^(?i)(ox)$' , '\\1en'],
@@ -38,9 +38,9 @@ class English (Base):
             ['(?i)s$' , 's'],
             ['(?i)$' , 's']
         ]
-        
+
         uncountable_words = ['equipment', 'information', 'rice', 'money', 'species', 'series', 'fish', 'sheep']
-        
+
         irregular_words = {
             'person' : 'people',
             'man' : 'men',
@@ -48,18 +48,18 @@ class English (Base):
             'sex' : 'sexes',
             'move' : 'moves'
         }
-        
+
         lower_cased_word = word.lower();
-        
+
         for uncountable_word in uncountable_words:
             if lower_cased_word[-1*len(uncountable_word):] == uncountable_word :
                 return word
-        
+
         for irregular in irregular_words.keys():
             match = re.search('('+irregular+')$',word, re.IGNORECASE)
             if match:
                 return re.sub('(?i)'+irregular+'$', match.expand('\\1')[0]+irregular_words[irregular][1:], word)
-        
+
         for rule in range(len(rules)):
             match = re.search(rules[rule][0], word, re.IGNORECASE)
             if match :
@@ -67,15 +67,15 @@ class English (Base):
                 for k in range(0,len(groups)) :
                     if groups[k] == None :
                         rules[rule][1] = rules[rule][1].replace('\\'+str(k+1), '')
-                        
+
                 return re.sub(rules[rule][0], rules[rule][1], word)
-        
+
         return word
 
 
     def singularize (self, word) :
         '''Singularizes English nouns.'''
-        
+
         rules = [
             ['(?i)(quiz)zes$' , '\\1'],
             ['(?i)(matr)ices$' , '\\1ix'],
@@ -102,9 +102,9 @@ class English (Base):
             ['(?i)(n)ews$' , '\\1ews'],
             ['(?i)s$' , ''],
         ];
-    
+
         uncountable_words = ['equipment', 'information', 'rice', 'money', 'species', 'series', 'fish', 'sheep','sms'];
-    
+
         irregular_words = {
             'people' : 'person',
             'men' : 'man',
@@ -112,18 +112,18 @@ class English (Base):
             'sexes' : 'sex',
             'moves' : 'move'
         }
-    
+
         lower_cased_word = word.lower();
-    
+
         for uncountable_word in uncountable_words:
             if lower_cased_word[-1*len(uncountable_word):] == uncountable_word :
                 return word
-            
+
         for irregular in irregular_words.keys():
             match = re.search('('+irregular+')$',word, re.IGNORECASE)
             if match:
                 return re.sub('(?i)'+irregular+'$', match.expand('\\1')[0]+irregular_words[irregular][1:], word)
-            
+
 
         for rule in range(len(rules)):
             match = re.search(rules[rule][0], word, re.IGNORECASE)
@@ -132,11 +132,11 @@ class English (Base):
                 for k in range(0,len(groups)) :
                     if groups[k] == None :
                         rules[rule][1] = rules[rule][1].replace('\\'+str(k+1), '')
-                        
+
                 return re.sub(rules[rule][0], rules[rule][1], word)
-        
+
         return word
-    
+
 
 
 # Copyright (c) 2006 Bermi Ferrer Martinez
