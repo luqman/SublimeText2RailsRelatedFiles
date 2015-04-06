@@ -1,5 +1,9 @@
 import sublime, sublime_plugin, os, glob, re
-from .vendor.inflector import *
+
+try:
+  from .vendor.inflector import *
+except ValueError:
+  from vendor.inflector import *
 
 # @author Luqman Amjad http://luqmanamjad.com
 

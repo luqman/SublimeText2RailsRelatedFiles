@@ -3,7 +3,10 @@
 # bermi a-t bermilabs - com
 # See the end of this file for the free software, open source license (BSD-style).
 
-from .languages.english import English
+try:
+    from .languages.english import English
+except ValueError:
+    from languages.english import English
 
 class Inflector(object):
     """
