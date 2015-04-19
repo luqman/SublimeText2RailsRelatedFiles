@@ -1,5 +1,9 @@
 import sublime, sublime_plugin, os, glob, re
-from vendor.inflector import *
+
+try:
+  from .vendor.inflector import *
+except ValueError:
+  from vendor.inflector import *
 
 # @author Luqman Amjad http://luqmanamjad.com
 
@@ -57,7 +61,7 @@ class RailsRelatedFilesHelper:
     ]
 
     return RailsRelatedFilesHelper.get_files_while_walking(app_folder, walkers)
-  
+
   @staticmethod
   def for_helpers(app_folder, working_directory, base_file_name):
 
@@ -288,7 +292,7 @@ class RailsRelatedFilesCommand(sublime_plugin.TextCommand):
     self.build_files()
     try:
       return self.files[index]
-    except IndexError, e:
+    except IndexError as e:
       return
 
   # Taken from Git Plugin (Changed .active_view() to .view)

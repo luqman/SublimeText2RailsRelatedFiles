@@ -3,29 +3,31 @@
 # bermi a-t bermilabs - com
 # See the end of this file for the free software, open source license (BSD-style).
 
-from languages.english import English
-from languages.spanish import Spanish
+try:
+    from .languages.english import English
+except ValueError:
+    from languages.english import English
 
 class Inflector(object):
     """
     Inflector for pluralizing and singularizing nouns.
-    
+
     It provides methods for helping on creating programs
     based on naming conventions like on Ruby on Rails.
     """
-    
+
     def __init__( self, Inflector = English ) :
         assert callable(Inflector), "Inflector should be a callable obj"
-        self.Inflector = apply(Inflector);
-        
+        self.Inflector = Inflector;
+
     def pluralize(self, word) :
         '''Pluralizes nouns.'''
-        return self.Inflector.pluralize(word)
-    
+        return self.Inflector.pluralize(self, word)
+
     def singularize(self, word) :
         '''Singularizes nouns.'''
-        return self.Inflector.singularize(word)
-    
+        return self.Inflector.singularize(self, word)
+
     def conditionalPlural(self, numer_of_records, word) :
         '''Returns the plural form of a word if first parameter is greater than 1'''
         return self.Inflector.conditionalPlural(numer_of_records, word)
@@ -44,14 +46,14 @@ class Inflector(object):
         will remove non alphanumeric character from the word, so
         "who's online" will be converted to "WhoSOnline"'''
         return self.Inflector.camelize(word)
-    
+
     def underscore(self, word) :
         ''' Converts a word "into_it_s_underscored_version"
         Convert any "CamelCased" or "ordinary Word" into an
         "underscored_word".
         This can be really useful for creating friendly URLs.'''
         return self.Inflector.underscore(word)
-    
+
     def humanize(self, word, uppercase = '') :
         '''Returns a human-readable string from word
         Returns a human-readable string from word, by replacing
@@ -60,53 +62,53 @@ class Inflector(object):
         If you need to uppercase all the words you just have to
         pass 'all' as a second parameter.'''
         return self.Inflector.humanize(word, uppercase)
-    
-    
+
+
     def variablize(self, word) :
         '''Same as camelize but first char is lowercased
         Converts a word like "send_email" to "sendEmail". It
         will remove non alphanumeric character from the word, so
         "who's online" will be converted to "whoSOnline"'''
         return self.Inflector.variablize(word)
-    
+
     def tableize(self, class_name) :
         ''' Converts a class name to its table name according to rails
         naming conventions. Example. Converts "Person" to "people" '''
         return self.Inflector.tableize(class_name)
-    
+
     def classify(self, table_name) :
         '''Converts a table name to its class name according to rails
         naming conventions. Example: Converts "people" to "Person" '''
         return self.Inflector.classify(table_name)
-    
+
     def ordinalize(self, number) :
         '''Converts number to its ordinal form.
         This method converts 13 to 13th, 2 to 2nd ...'''
         return self.Inflector.ordinalize(number)
-    
-    
+
+
     def unaccent(self, text) :
-        '''Transforms a string to its unaccented version. 
+        '''Transforms a string to its unaccented version.
         This might be useful for generating "friendly" URLs'''
         return self.Inflector.unaccent(text)
-    
+
     def urlize(self, text) :
         '''Transform a string its unaccented and underscored
         version ready to be inserted in friendly URLs'''
         return self.Inflector.urlize(text)
-    
-    
+
+
     def demodulize(self, module_name) :
         return self.Inflector.demodulize(module_name)
-    
+
     def modulize(self, module_description) :
         return self.Inflector.modulize(module_description)
-    
+
     def foreignKey(self, class_name, separate_class_name_and_id_with_underscore = 1) :
-        ''' Returns class_name in underscored form, with "_id" tacked on at the end. 
+        ''' Returns class_name in underscored form, with "_id" tacked on at the end.
         This is for use in dealing with the database.'''
         return self.Inflector.foreignKey(class_name, separate_class_name_and_id_with_underscore)
-    
+
 
 
 

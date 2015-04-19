@@ -1,4 +1,4 @@
-# Sublime Text 2 - Rails Related Files
+# Sublime Text 2/3 - Rails Related Files
 
 Note: I've never written any Python code before! So feel free to implement best practices and make a pull request.
 
