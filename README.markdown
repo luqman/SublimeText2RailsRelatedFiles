@@ -49,9 +49,10 @@ Context Menu
 
 ### Contributors
 
-- https://github.com/fredwu Fred Wu added support for test/spec files
-- https://github.com/bratsche Cody Russell bug fix
-- https://github.com/deiga Timo Sand Sublime Menu Entries, Support for helper Files
+- https://github.com/fredwu - Fred Wu - added support for test/spec files
+- https://github.com/bratsche - Cody Russell - bug fix
+- https://github.com/deiga - Timo Sand - Sublime Menu Entries, Support for helper Files
+- https://github.com/nahaylo - Vitaliy Nahaylo - ST3 compatibility fix
 
 ### Credits
 
