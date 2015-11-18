@@ -1,0 +1,9 @@
+---------------------------------------
+         Rails Related Files
+---------------------------------------
+
+Thank You for installing Rails Related Files.
+
+cmd+shiftq(Mac)/super+shift+o(Linux/Windows) to bring up the Quick Panel Option.
+
+Simply right-click to bring up the Context Menu Option.
